@@ -1,0 +1,23 @@
+<?php
+require_once("./model/users.php");
+require_once('./data/usersData.php');
+require_once("./data/tweetsData.php");
+require_once("./model/tweet.php");
+$maria = new users('maria','maria@x.com','mariaZin','5555');
+$jose = new users('jose','ze@x.com','ze','4567');
+$userData = $maria->add($userData);
+$userData=$jose->add($userData);
+$carol = new users('carol','carol@x.com','carolZin','0987');
+$userData=$carol->add($userData);
+$t1 = new tweet("Amei duna",$maria->getId());
+$t2 = new tweet('so assisto filme comendo pipoca',$jose->getId());
+$t3 = new tweet("segue a thread",$carol->getId());
+$t2->like($maria->getUserName());
+$t2->like($carol->getUserName());
+$t1->like($jose->getUserName());
+$tweetsData=$t1->add($tweetsData);
+$tweetsData=$t2->add($tweetsData);
+$tweetsData=$t3->add($tweetsData);
+$t1->show($userData);
+$t2->show($userData);
+$t3->show($userData);
